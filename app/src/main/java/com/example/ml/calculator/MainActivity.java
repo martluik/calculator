@@ -1,55 +1,108 @@
 package com.example.ml.calculator;
 
+import android.nfc.Tag;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
+    private static final String STATE_FIRST_NUMBER = "firstNumber";
+    private static final String STATE_SECOND_NUMBER = "secondNumber";
+    private static final String STATE_DISPLAY = "display";
+    private static final String STATE_OPERATION = "operationType";
+    private static final String STATE_STEP = "step";
+    private static final String STATE_DOT_PRESSED = "dotPressed";
+
+    private CalculatorLogic calculatorLogic;
+
+    private TextView display;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        display = (TextView) findViewById(R.id.display);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
-    }
+        calculatorLogic = new CalculatorLogic();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        // Do I need to restore state?
+        if(savedInstanceState != null) {
+            if (BuildConfig.DEBUG) { Log.d(TAG, "Restoring state"); }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            calculatorLogic.setFirstNumber(savedInstanceState.getString(STATE_FIRST_NUMBER));
+            calculatorLogic.setSecondNumber(savedInstanceState.getString(STATE_SECOND_NUMBER));
+            calculatorLogic.setDisplay(savedInstanceState.getString(STATE_DISPLAY));
+            calculatorLogic.setOperationType(savedInstanceState.getInt(STATE_OPERATION));
+            calculatorLogic.setStep(savedInstanceState.getInt(STATE_STEP));
+            calculatorLogic.setDotPressed(savedInstanceState.getBoolean(STATE_DOT_PRESSED));
         }
 
-        return super.onOptionsItemSelected(item);
+        display.setText(calculatorLogic.getDisplay());
     }
+
+    public void number(View v) {
+        calculatorLogic.number(v.getId());
+        display.setText(calculatorLogic.getDisplay());
+    }
+
+    public void operation(View v) {
+        calculatorLogic.operation(v.getId());
+        display.setText(calculatorLogic.getDisplay());
+    }
+
+    public void clear(View v) {
+        calculatorLogic.clear();
+        display.setText(calculatorLogic.getDisplay());
+    }
+
+    public void calculate(View v) {
+        calculatorLogic.calculate();
+        display.setText(calculatorLogic.getDisplay());
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(STATE_FIRST_NUMBER, calculatorLogic.getFirstNumber());
+        savedInstanceState.putString(STATE_SECOND_NUMBER, calculatorLogic.getSeconNmber());
+        savedInstanceState.putString(STATE_DISPLAY, calculatorLogic.getDisplay());
+        savedInstanceState.putInt(STATE_OPERATION, calculatorLogic.getOperationType());
+        savedInstanceState.putInt(STATE_STEP, calculatorLogic.getStep());
+        savedInstanceState.putBoolean(STATE_DOT_PRESSED, calculatorLogic.getDotPressed());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (BuildConfig.DEBUG) { Log.d(TAG, "onStart called"); }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (BuildConfig.DEBUG) { Log.d(TAG, "onResume called"); }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (BuildConfig.DEBUG) { Log.d(TAG, "onPause called"); }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (BuildConfig.DEBUG) { Log.d(TAG, "onStop called"); }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (BuildConfig.DEBUG) { Log.d(TAG, "onDestroy called"); }
+    }
+
 }
