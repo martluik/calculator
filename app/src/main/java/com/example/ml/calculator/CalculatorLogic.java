@@ -13,12 +13,11 @@ public class CalculatorLogic {
 
     private static String firstNumber = "";
     private static String secondNumber = "";
-    private static int operationType = 0;
     private static String display = "";
-    private static boolean dotPressed = false;
+    private static int operationType = 0;
     private static int step = 1;
+    private static boolean dotPressed = false;
 
-    // Klassi konstruktor
     public CalculatorLogic() { }
 
     public String getFirstNumber() { return firstNumber; }
@@ -34,83 +33,81 @@ public class CalculatorLogic {
     public boolean getDotPressed() { return dotPressed; }
     public void setDotPressed(boolean b) { dotPressed = b; }
 
-
     public void number(int i) {
         if(step == 3) {
             clear();
         }
-
-        String n = "";
-
+        String numberString = "";
         switch (i) {
             case (R.id.button0):
                 if(step == 1) {
-                    if(firstNumber.length() == 0 || (firstNumber.length() > 0 && !Objects.equals(firstNumber, "0"))) {
-                        n = "0";
-                    } //else if (firstNumber.length() == 1 && firstNumber == "0")
+                    if(firstNumber.equals("") || !firstNumber.equals("0")) {
+                        numberString = "0";
+                    }
                 } else if (step == 2) {
-                    if(secondNumber.length() == 0 || (secondNumber.length() > 0 && !Objects.equals(secondNumber, "0"))) {
-                        n = "0";
+                    if(secondNumber.equals("") || !secondNumber.equals("0")) {
+                        numberString = "0";
                     }
                 }
-
                 break;
             case (R.id.button1):
-                n = "1";
+                numberString = "1";
                 break;
             case (R.id.button2):
-                n = "2";
+                numberString = "2";
                 break;
             case (R.id.button3):
-                n = "3";
+                numberString = "3";
                 break;
             case (R.id.button4):
-                n = "4";
+                numberString = "4";
                 break;
             case (R.id.button5):
-                n = "5";
+                numberString = "5";
                 break;
             case (R.id.button6):
-                n = "6";
+                numberString = "6";
                 break;
             case (R.id.button7):
-                n = "7";
+                numberString = "7";
                 break;
             case (R.id.button8):
-                n = "8";
+                numberString = "8";
                 break;
             case (R.id.button9):
-                n = "9";
+                numberString = "9";
                 break;
             case (R.id.buttondot):
                 if(!dotPressed) {
-
                     dotPressed = true;
-
                     if(step == 1 && firstNumber.length() == 0 || step == 2 && secondNumber.length() == 0) {
-                        n = "0.";
-                        Log.d(TAG, "first or second number empty");
+                        numberString = "0.";
                     } else {
-                        n = ".";
+                        numberString = ".";
                     }
                 }
                 break;
         }
-
-        if (step == 1) {
-            firstNumber += n;
-        } else if (step == 2) {
-            secondNumber += n;
+        switch (step) {
+            case (1):
+                firstNumber += numberString;
+                break;
+            case (2):
+                secondNumber += numberString;
+                break;
         }
-
-        display += n;
-
+        display += numberString;
     }
 
     public void operation(int i) {
+        if(step == 3) {
+            firstNumber = display;
+            secondNumber = "";
+        }
+
+        String operationString = "";
         step = 2;
         dotPressed = false;
-        String operationString = "";
 
         if(operationType != 0) {
             display = firstNumber;
@@ -136,13 +133,11 @@ public class CalculatorLogic {
         }
 
         if(firstNumber.charAt(firstNumber.length() - 1) == '.') {
-            String s = firstNumber.substring(0, firstNumber.length()-1);
-            firstNumber = s;
-            display = s;
+            String newNumber = firstNumber.substring(0, firstNumber.length()-1);
+            firstNumber = newNumber;
+            display = newNumber;
         }
-
         display += operationString;
-
     }
 
     public void calculate() {

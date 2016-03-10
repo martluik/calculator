@@ -24,7 +24,7 @@
                 android:id="@+id/display"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:textSize="70sp"
+                android:textSize="50sp"
                 android:gravity="center_vertical|right"
                 android:layout_gravity="center|right"
                 android:layout_weight=".77"
@@ -41,7 +41,7 @@
                 android:text="c"
                 android:textColor="@color/lightGray"
                 android:background="@drawable/clear_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_weight="0.22"
                 android:clickable="true"
                 android:layout_marginLeft="20sp"
@@ -50,7 +50,8 @@
                 android:layout_marginBottom="20sp"
                 android:layout_gravity="center"
                 android:height="0sp"
-                android:onClick="clear" />
+                android:onClick="clear"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -72,7 +73,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:clickable="true"
@@ -81,7 +82,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="25sp"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button8"
@@ -91,13 +93,14 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="20sp"
                 android:clickable="true"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button9"
@@ -107,13 +110,14 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="20sp"
                 android:clickable="true"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/buttondiv"
@@ -123,7 +127,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/operation_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:height="0sp"
@@ -132,7 +136,8 @@
                 android:layout_marginBottom="20sp"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="25sp"
-                android:onClick="operation" />
+                android:onClick="operation"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -154,7 +159,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:clickable="true"
@@ -163,7 +168,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="25sp"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button5"
@@ -173,13 +179,14 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="20sp"
                 android:clickable="true"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button6"
@@ -189,13 +196,14 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="20sp"
                 android:clickable="true"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/buttonmul"
@@ -205,7 +213,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/operation_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:height="0sp"
@@ -214,7 +222,8 @@
                 android:layout_marginBottom="20sp"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="25sp"
-                android:onClick="operation" />
+                android:onClick="operation"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -236,7 +245,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:clickable="true"
@@ -245,7 +254,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="25sp"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button2"
@@ -255,13 +265,14 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="20sp"
                 android:clickable="true"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button3"
@@ -271,13 +282,14 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="20sp"
                 android:clickable="true"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/buttonmin"
@@ -287,7 +299,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/operation_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:height="0sp"
@@ -296,7 +308,8 @@
                 android:layout_marginBottom="20sp"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="25sp"
-                android:onClick="operation" />
+                android:onClick="operation"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -318,7 +331,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:clickable="true"
@@ -327,7 +340,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="25sp"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button0"
@@ -337,7 +351,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:clickable="true"
@@ -346,7 +360,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="20sp"
                 android:height="0sp"
-                android:onClick="number" />
+                android:onClick="number"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/buttonequ"
@@ -356,7 +371,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/number_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:clickable="true"
@@ -365,7 +380,8 @@
                 android:layout_marginRight="20sp"
                 android:layout_marginLeft="20sp"
                 android:height="0sp"
-                android:onClick="calculate" />
+                android:onClick="calculate"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/buttonplu"
@@ -375,7 +391,7 @@
                 android:textColor="@color/lightGray"
                 android:layout_weight=".25"
                 android:background="@drawable/operation_btn"
-                android:textSize="60sp"
+                android:textSize="50sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:height="0sp"
@@ -384,7 +400,8 @@
                 android:layout_marginBottom="25sp"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="25sp"
-                android:onClick="operation" />
+                android:onClick="operation"
+                android:textAlignment="center" />
 
         </LinearLayout>
 

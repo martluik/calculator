@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         calculatorLogic = new CalculatorLogic();
 
-        // Do I need to restore state?
         if(savedInstanceState != null) {
             if (BuildConfig.DEBUG) { Log.d(TAG, "Restoring state"); }
 
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             calculatorLogic.setStep(savedInstanceState.getInt(STATE_STEP));
             calculatorLogic.setDotPressed(savedInstanceState.getBoolean(STATE_DOT_PRESSED));
         }
-
         display.setText(calculatorLogic.getDisplay());
     }
 
@@ -104,5 +102,4 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         if (BuildConfig.DEBUG) { Log.d(TAG, "onDestroy called"); }
     }
-
 }
