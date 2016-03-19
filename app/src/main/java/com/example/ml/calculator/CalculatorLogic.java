@@ -1,6 +1,7 @@
 package com.example.ml.calculator;
 
 import android.util.Log;
+import android.widget.Button;
 
 import java.util.Objects;
 
@@ -11,37 +12,44 @@ public class CalculatorLogic {
 
     private static final String TAG = "CalculatorLogic";
 
-    private static String firstNumber = "";
+    private static String firstNumber = "0";
     private static String secondNumber = "";
-    private static String display = "";
+    private static String display = "0";
+    private static String answer = "";
     private static int operationType = 0;
     private static int step = 1;
     private static boolean dotPressed = false;
 
     public CalculatorLogic() { }
 
-    public String getFirstNumber() { return firstNumber; }
-    public void setFirstNumber(String s) { firstNumber = s; }
-    public String getSeconNmber() { return secondNumber; }
-    public void setSecondNumber(String s) { secondNumber = s; }
+//    public String getFirstNumber() { return firstNumber; }
+//    public void setFirstNumber(String s) { firstNumber = s; }
+//    public String getSecondNumber() { return secondNumber; }
+//    public void setSecondNumber(String s) { secondNumber = s; }
     public String getDisplay() { return display; }
-    public void setDisplay(String s) { display = s; }
-    public int getOperationType() { return operationType; }
-    public void setOperationType(int i) { operationType = i; }
-    public int getStep() { return step; }
-    public void setStep(int i) { step = i; }
-    public boolean getDotPressed() { return dotPressed; }
-    public void setDotPressed(boolean b) { dotPressed = b; }
+//    public void setDisplay(String s) { display = s; }
+    public String getAnswer() { return answer; }
+//    public void setAnswer(String s) { answer = s; }
+//    public int getOperationType() { return operationType; }
+//    public void setOperationType(int i) { operationType = i; }
+//    public int getStep() { return step; }
+//    public void setStep(int i) { step = i; }
+//    public boolean getDotPressed() { return dotPressed; }
+//    public void setDotPressed(boolean b) { dotPressed = b; }
 
-    public void number(int i) {
+    public void number(String id) {
         if(step == 3) {
             clear();
         }
+
         String numberString = "";
-        switch (i) {
-            case (R.id.button0):
+        switch (id.charAt(id.length()-1)) {
+            case ('0'):
                 if(step == 1) {
-                    if(firstNumber.equals("") || !firstNumber.equals("0")) {
+                    if(firstNumber.equals("0")) {
+                        numberString = "";
+                    }
+                    else {
                         numberString = "0";
                     }
                 } else if (step == 2) {
@@ -50,37 +58,37 @@ public class CalculatorLogic {
                     }
                 }
                 break;
-            case (R.id.button1):
+            case ('1'):
                 numberString = "1";
                 break;
-            case (R.id.button2):
+            case ('2'):
                 numberString = "2";
                 break;
-            case (R.id.button3):
+            case ('3'):
                 numberString = "3";
                 break;
-            case (R.id.button4):
+            case ('4'):
                 numberString = "4";
                 break;
-            case (R.id.button5):
+            case ('5'):
                 numberString = "5";
                 break;
-            case (R.id.button6):
+            case ('6'):
                 numberString = "6";
                 break;
-            case (R.id.button7):
+            case ('7'):
                 numberString = "7";
                 break;
-            case (R.id.button8):
+            case ('8'):
                 numberString = "8";
                 break;
-            case (R.id.button9):
+            case ('9'):
                 numberString = "9";
                 break;
-            case (R.id.buttondot):
+            case ('d'):
                 if(!dotPressed) {
                     dotPressed = true;
-                    if(step == 1 && firstNumber.length() == 0 || step == 2 && secondNumber.length() == 0) {
+                    if(step == 1 && firstNumber == "0" || step == 2 && secondNumber == "") {
                         numberString = "0.";
                     } else {
                         numberString = ".";
@@ -96,12 +104,20 @@ public class CalculatorLogic {
                 secondNumber += numberString;
                 break;
         }
-        display += numberString;
+
+        if(display == "0") {
+            display = numberString;
+        } else {
+            display += numberString;
+        }
     }
 
-    public void operation(int i) {
+    public void operation(String s) {
+        if(firstNumber.length() == 0)
+            return;
+
         if(step == 3) {
-            firstNumber = display;
+            firstNumber = answer;
             secondNumber = "";
         }
 
@@ -113,20 +129,20 @@ public class CalculatorLogic {
             display = firstNumber;
         }
 
-        switch (i) {
-            case (R.id.buttonmul):
+        switch (s) {
+            case ("com.example.ml.calculatorii:id/mul"):
                 operationString = " * ";
                 operationType = 1;
                 break;
-            case (R.id.buttondiv):
+            case ("com.example.ml.calculatorii:id/div"):
                 operationString = " / ";
                 operationType = 2;
                 break;
-            case (R.id.buttonplu):
+            case ("com.example.ml.calculatorii:id/plu"):
                 operationString = " + ";
                 operationType = 3;
                 break;
-            case (R.id.buttonmin):
+            case ("com.example.ml.calculatorii:id/min"):
                 operationString = " - ";
                 operationType = 4;
                 break;
@@ -170,17 +186,20 @@ public class CalculatorLogic {
 
         if(a.charAt(a.length()-1) == '0' &&
                 a.charAt(a.length()-2) == '.') {
-            display = d.toString().substring(0, d.toString().length()-2);
+            answer = d.toString().substring(0, d.toString().length()-2);
+            //display = d.toString().substring(0, d.toString().length()-2);
         } else {
-            display = d.toString();
+            answer = d.toString();
+            //display = d.toString();
         }
     }
 
     public void clear() {
-        firstNumber = "";
+        firstNumber = "0";
         secondNumber = "";
         operationType = 0;
-        display = "";
+        display = "0";
+        answer = "";
         dotPressed = false;
         step = 1;
     }
